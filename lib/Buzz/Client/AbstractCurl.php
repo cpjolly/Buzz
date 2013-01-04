@@ -170,8 +170,9 @@ abstract class AbstractCurl extends AbstractClient
 
         // apply settings from client
         curl_setopt($curl, CURLOPT_TIMEOUT, $this->getTimeout());
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0 < $this->getMaxRedirects());
-        curl_setopt($curl, CURLOPT_MAXREDIRS, $this->getMaxRedirects());
+        //HACK CJ 040113
+        //curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0 < $this->getMaxRedirects());
+        //curl_setopt($curl, CURLOPT_MAXREDIRS, $this->getMaxRedirects());
         curl_setopt($curl, CURLOPT_FAILONERROR, !$this->getIgnoreErrors());
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->getVerifyPeer());
 
